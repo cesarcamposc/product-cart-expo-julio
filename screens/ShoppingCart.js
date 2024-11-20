@@ -3,30 +3,32 @@ import React from 'react'
 import cart from '../data/cart'
 import CartListItem from '../components/CartListItem'
 
+const ShoppingCartTotals = () => (
+    <View style = {styles.totalsContainer}>
+        <View style = {styles.row}>
+            <Text style = {styles.text}>SubTotal</Text>
+            <Text style = {styles.text}>$ 787,00</Text>
+        </View>
+
+        <View style = {styles.row}>
+            <Text style = {styles.text}>Delivery</Text>
+            <Text style = {styles.text}>$ 20,00</Text>
+        </View>
+
+        <View style = {styles.row}>
+            <Text style = {styles.textBold}>Total</Text>
+            <Text style = {styles.textBold}>$ 817,00</Text>
+        </View>
+    </View>
+)
+
 const ShoppingCart = () => {
   return (
     
     <FlatList
     data={cart}
     renderItem={({item}) => <CartListItem carItem={item}/>}
-    ListFooterComponent={()=>(
-        <View style = {styles.totalsContainer}>
-            <View style = {styles.row}>
-                <Text style = {styles.text}>SubTotal</Text>
-                <Text style = {styles.text}>$ 787,00</Text>
-            </View>
-
-            <View style = {styles.row}>
-                <Text style = {styles.text}>Delivery</Text>
-                <Text style = {styles.text}>$ 20,00</Text>
-            </View>
-
-            <View style = {styles.row}>
-                <Text style = {styles.textBold}>Total</Text>
-                <Text style = {styles.textBold}>$ 817,00</Text>
-            </View>
-        </View>
-    )}
+    ListFooterComponent={ShoppingCartTotals}
     />
   )
 }

@@ -4,15 +4,18 @@ import products from '../data/products'
 import ProductsScreen from '../screens/ProductsScreen';
 import ProductDetailsScreen from '../screens/ProductDetailsScreen';
 import ShoppingCart from '../screens/ShoppingCart';
+import Navigation from '../navigation/navigation'
+import { Provider } from 'react-redux';
+import { store } from '../store/store';
 
 
 export default function index() {
   return (
-    <View style={styles.container}>
-      {/* <ProductsScreen /> */}
-      {/* <ProductDetailsScreen /> */}
-      <ShoppingCart />
-    </View>
+    <Provider store={store}>
+      <View style={styles.container}>
+        <Navigation />
+      </View>
+    </Provider>
   );
 }
 
